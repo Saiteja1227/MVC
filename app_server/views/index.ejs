@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    h1 {
+      color: rgb(0, 0, 0);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif, sans-serif;
+      font-size: 2em;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .moving-title span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+      animation: moveIn 0.6s forwards;
+    }
+    .moving-title span:nth-child(1) { animation-delay: 0.05s; }
+    .moving-title span:nth-child(2) { animation-delay: 0.10s; }
+    .moving-title span:nth-child(3) { animation-delay: 0.15s; }
+    .moving-title span:nth-child(4) { animation-delay: 0.20s; }
+    .moving-title span:nth-child(5) { animation-delay: 0.25s; }
+    .moving-title span:nth-child(6) { animation-delay: 0.30s; }
+    .moving-title span:nth-child(7) { animation-delay: 0.35s; }
+    .moving-title span:nth-child(8) { animation-delay: 0.40s; }
+    .moving-title span:nth-child(9) { animation-delay: 0.45s; }
+    .moving-title span:nth-child(10) { animation-delay: 0.50s; }
+    .moving-title span:nth-child(11) { animation-delay: 0.55s; }
+    .moving-title span:nth-child(12) { animation-delay: 0.60s; }
+    .moving-title span:nth-child(13) { animation-delay: 0.65s; }
+    .moving-title span:nth-child(14) { animation-delay: 0.70s; }
+    .moving-title span:nth-child(15) { animation-delay: 0.75s; }
+    @keyframes moveIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    body {
+      background-color: rgb(46, 173, 211);
+      font-family: Arial, Helvetica, sans-serif, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Welcome <br> to <br>
+    <span class="moving-title" id="animated-title"></span>
+  </h1>
+  <script>
+    // Animate the title letters
+    const title = `<%= title %>`;
+    const container = document.getElementById('animated-title');
+    container.innerHTML = '';
+    for (let i = 0; i < title.length; i++) {
+      const span = document.createElement('span');
+      span.textContent = title[i] === ' ' ? '\u00A0' : title[i];
+      container.appendChild(span);
+    }
+  </script>
+</body>
+</html>
